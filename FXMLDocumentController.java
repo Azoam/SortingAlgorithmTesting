@@ -28,8 +28,8 @@ public class FXMLDocumentController implements Initializable {
     public ArrayList<String> dataBaseIntegers = new ArrayList<>(); //database containing integers
     public ObservableList<String> ol = FXCollections.observableArrayList();
     public ListView<String> listView = new ListView<>();
-    public boolean isListViewSet = false;
-    public String curDB;
+    public boolean isListViewSet = false; //Used to error check multiple times the database buttons are clicked
+    public String curDB; //current database selected, used for sorting specifics
     
     public void initialize(URL url, ResourceBundle rb) {
       //Databases are created
@@ -37,17 +37,17 @@ public class FXMLDocumentController implements Initializable {
       dataBaseStrings.add("Steve");
       dataBaseStrings.add("Mark");
       dataBaseStrings.add("Alex");
-      dataBaseStrings.add("Martha");
-      dataBaseStrings.add("Stewart");
+      dataBaseStrings.add("Valarie");
+      dataBaseStrings.add("Francis");
       dataBaseStrings.add("Todd");
-      dataBaseStrings.add("Max");
-      dataBaseStrings.add("Tyler");
+      dataBaseStrings.add("Ian");
+      dataBaseStrings.add("Gregg");
       dataBaseStrings.add("Zack");
-      dataBaseStrings.add("Gary");
-      dataBaseStrings.add("Carly");
-      dataBaseStrings.add("Tyler");
+      dataBaseStrings.add("Beck");
+      dataBaseStrings.add("Diana");
+      dataBaseStrings.add("Harold");
       dataBaseStrings.add("Elyas");
-      dataBaseStrings.add("Idoit");
+      dataBaseStrings.add("Ronald");
       dataBaseStrings.add("Justin");
       System.out.println("Database Strings set!");
       Random ran = new Random();
@@ -57,6 +57,11 @@ public class FXMLDocumentController implements Initializable {
       }
       System.out.println("Database Integers set!");
     }
+    
+    
+    
+    
+    
     
     //Button Actions
     public void stringDatabaseButtonClicked(){
@@ -90,6 +95,12 @@ public class FXMLDocumentController implements Initializable {
         else
             bucketSort(curDB);
     }
+    public void bubbleSortButtonClicked(){
+        if(!isListViewSet)
+            System.out.println("No List has been set!");
+        else
+            bubbleSort(curDB);
+    }
     
     
     
@@ -97,16 +108,12 @@ public class FXMLDocumentController implements Initializable {
     
     
     
-    
-    
-    
-    
-    
-    
+  
     //Alogrithm Methods
     public void bucketSort(String selectDB){
+        
         ObservableList<String> newList = FXCollections.observableArrayList();
-        if(selectDB.equals("string")){
+        if(selectDB.equals("string")){ //Current Database Selection
           int size = 26; //26 letters in the Alphabet
           String[] temp = new String[size];
           for(int i = 0; i < size; i++)
@@ -152,8 +159,48 @@ public class FXMLDocumentController implements Initializable {
     }
     
     
-    public String bubbleSort(){
-        return null;
+    public void bubbleSort(String selectDB){
+        ObservableList<String> newList = FXCollections.observableArrayList();
+        if(selectDB.equals("string")){
+            String[] temp = new String[dataBaseStrings.size()];
+            for(int i = 0; i < temp.length; i++){
+                temp[i] = dataBaseStrings.get(i);
+            }
+            for(int i = dataBaseStrings.size(); i > 0; i--){
+                for(int j = 0; j<i-1; j++){
+                    if(temp[j].compareTo(temp[j+1])>0){
+                        String tempST = temp[j+1];
+                        temp[j+1] = temp[j];
+                        temp[j] = tempST;
+                    }
+                }
+            }
+            for(String x: temp)
+                newList.add(x);
+            listView.setItems(newList);
+            
+            
+        }
+        
+        
+        else if(selectDB.equals("integer")){
+            String[] temp = new String[dataBaseIntegers.size()];
+            for(int i = 0; i < temp.length; i++){
+                temp[i] = dataBaseIntegers.get(i);
+            }
+            for(int i = dataBaseIntegers.size(); i > 0; i--){
+                for(int j = 0; j<i-1; j++){
+                    if(Integer.parseInt(temp[j]) > (Integer.parseInt(temp[j+1]))){
+                        String tempST = temp[j+1];
+                        temp[j+1] = temp[j];
+                        temp[j] = tempST;
+                    }
+                }
+            }
+            for(String x: temp)
+                newList.add(x);
+            listView.setItems(newList);
+        }
     }
     
     
@@ -247,7 +294,7 @@ public class FXMLDocumentController implements Initializable {
 
     private String[] updatedTempBuS(String[] temp, int numOfAlph, String x) {
         String[] newTemp = temp;
-        if(numOfAlph != 25 && !temp[numOfAlph].equals("*")){
+        if(numOfAlph != 25 && !temp[numOfAlph].equals("*")){//Check if spots are available 
             for(int i = numOfAlph+1; i < 26; i++){
                if(newTemp[i].equals("*")){
                    newTemp[i] = x;

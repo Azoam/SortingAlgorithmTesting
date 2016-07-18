@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="671.0" prefWidth="451.0" style="-fx-background-color: #99ccff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="algo_tests_wfxml.FXMLDocumentController">
+   <children>
+      <HBox prefHeight="65.0" prefWidth="451.0">
+         <children>
+            <Label prefHeight="70.0" prefWidth="267.0" text="Algorithm Testing">
+               <font>
+                  <Font name="Borealis Regular" size="31.0" />
+               </font>
+               <padding>
+                  <Insets left="17.0" />
+               </padding>
+            </Label>
+            <Region prefHeight="65.0" prefWidth="120.0" />
+            <Button mnemonicParsing="false" onAction="#resetButtonClicked" style="-fx-background-color: #99ccff;" text="Reset" textFill="WHITE">
+               <HBox.margin>
+                  <Insets top="20.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <VBox layoutX="-2.0" layoutY="107.0" prefHeight="568.0" prefWidth="230.0" spacing="24.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#bucketSortButtonClicked" style="-fx-background-color: #000066;" text="Bucket Sort" textFill="WHITE">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Button>
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: #000066;" text="Bubble Sort" textFill="WHITE" />
+            <Button layoutX="10.0" layoutY="35.0" mnemonicParsing="false" style="-fx-background-color: #000066;" text="Selection Sort" textFill="WHITE">
+               <VBox.margin>
+                  <Insets left="-7.0" />
+               </VBox.margin>
+            </Button>
+            <Button layoutX="10.0" layoutY="60.0" mnemonicParsing="false" style="-fx-background-color: #000066;" text="Insertion Sort" textFill="WHITE">
+               <VBox.margin>
+                  <Insets left="-6.0" />
+               </VBox.margin>
+            </Button>
+            <Button layoutX="10.0" layoutY="85.0" mnemonicParsing="false" style="-fx-background-color: #000066;" text="Mergesort" textFill="WHITE" />
+         </children>
+         <padding>
+            <Insets left="77.0" />
+         </padding>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </VBox>
+      <VBox layoutX="228.0" layoutY="506.0" prefHeight="93.0" prefWidth="200.0" spacing="13.0">
+         <children>
+            <Button fx:id="stringDatabase" mnemonicParsing="false" onAction="#stringDatabaseButtonClicked" style="-fx-background-color: #000066;" text="String Database" textFill="WHITE" />
+            <Button fx:id="integerDatabase" mnemonicParsing="false" onAction="#integerDatabaseButtonClicked" style="-fx-background-color: #000066;" text="Integer Database" textFill="WHITE">
+               <VBox.margin>
+                  <Insets left="-3.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+         <padding>
+            <Insets left="46.0" top="7.0" />
+         </padding>
+      </VBox>
+      <VBox layoutX="230.0" layoutY="107.0" prefHeight="376.0" prefWidth="186.0">
+         <children>
+            <ListView fx:id="listView" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

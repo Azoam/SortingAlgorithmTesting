@@ -5,3 +5,4 @@ I plan for this repo to be a stepping stone to further my understanding of sorti
 valuable feedback to be given, by all means contact me. Thank you!
 
 Edit 7/17/2016: Bucket Sorting Complete
+Edit 7/18/2016: Bubble Sorting Complete/ String Database Updated for simplicity 
